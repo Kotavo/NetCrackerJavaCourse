@@ -21,21 +21,21 @@ public class TwoDimensionalArray {
     public static void arrayOutput(int arr[][]) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-                System.out.print("  " + "[" + i + "]" + "[" + j + "]" + " = " + arr[i][j] + "  " );
+                System.out.print("  " + "[" + i + "]" + "[" + j + "]" + " = " + arr[i][j] + "  ");
             }
             System.out.println();
         }
     }
 
-    public static void mainDiagonal(int[][] arr){
+    public static void mainDiagonal(int[][] arr) {
         int sum = 0;
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
-               if( i == j){
-                   sum += arr[i][j];
-                   mult *= arr[i][j];
-               }
+                if (i == j) {
+                    sum += arr[i][j];
+                    mult *= arr[i][j];
+                }
             }
         }
         System.out.println("Main Diagonal: ");
@@ -48,7 +48,7 @@ public class TwoDimensionalArray {
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
-                if( j == (arr.length - i - 1) ){
+                if (j == (arr.length - i - 1)) {
                     sum += arr[i][j];
                     mult *= arr[i][j];
                 }
@@ -59,19 +59,19 @@ public class TwoDimensionalArray {
         System.out.println();
     }
 
-    public static void maxElement(int[][] arr){
+    public static void maxElement(int[][] arr) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-                if(arr[i][j] > max){
+                if (arr[i][j] > max) {
                     max = arr[i][j];
                 }
             }
         }
-        System.out.print( "\n" + "Max value: " + max + "\n" +"Index of max value: ");
+        System.out.print("\n" + "Max value: " + max + "\n" + "Index of max value: ");
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-                if(arr[i][j] == max){
+                if (arr[i][j] == max) {
                     System.out.print(" [" + i + "]" + "[" + j + "]");
                 }
             }
@@ -100,27 +100,27 @@ public class TwoDimensionalArray {
                 rowMulti *= arr[i][j];
             }
             rowMulti = Math.abs(rowMulti);
-            if(rowMulti == temp){
+            if (rowMulti == temp) {
                 System.out.print(" " + i + " ");
             }
             rowMulti = 1;
         }
     }
 
-    public static int[][] rowArraySOrt(int[][] arr){
+    public static int[][] rowArraySOrt(int[][] arr) {
         int temp = 0;
-            for(int i = 0; i < arr.length; i++)
+        for (int i = 0; i < arr.length; i++)
             for (int j = 0; j < arr[0].length; j++) {
-                for(int k = 0; k <  arr[0].length - 1; k++) {
-                    if(arr[j][k] > arr[j][k+1]){
-                        temp = arr[j][k+1];
-                        arr[j][k+1] = arr[j][k];
+                for (int k = 0; k < arr[0].length - 1; k++) {
+                    if (arr[j][k] > arr[j][k + 1]) {
+                        temp = arr[j][k + 1];
+                        arr[j][k + 1] = arr[j][k];
                         arr[j][k] = temp;
 
                     }
                 }
             }
-           return Arrays.copyOf(arr,arr.length);
+        return Arrays.copyOf(arr, arr.length);
     }
 
 }
