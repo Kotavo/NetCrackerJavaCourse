@@ -82,6 +82,26 @@ public class Ball {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ball)) return false;
+
+        Ball ball = (Ball) o;
+
+        if (Float.compare(ball.x, x) != 0) return false;
+        if (Float.compare(ball.y, y) != 0) return false;
+        return radius == ball.radius;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (x != +0.0f ? Float.floatToIntBits(x) : 0);
+        result = 31 * result + (y != +0.0f ? Float.floatToIntBits(y) : 0);
+        result = 31 * result + radius;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Ball[ " +
                 "(" + x +

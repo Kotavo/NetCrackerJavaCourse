@@ -72,6 +72,17 @@ public class MyComplex {
                 Double.compare(this.imag, imag) == 0;
     }
 
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(getReal());
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(getImag());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
     public double magnitude(){
         return Math.sqrt(real*real + imag*imag);
     }

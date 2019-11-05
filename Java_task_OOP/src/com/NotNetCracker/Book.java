@@ -1,6 +1,7 @@
 package com.NotNetCracker;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Book {
     private String name;
@@ -51,6 +52,22 @@ public class Book {
             result += authors[i].getName() + ", ";
         }
         return  result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return name.equals(book.name) &&
+                Arrays.equals(authors, book.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name);
+        result = 31 * result + Arrays.hashCode(authors);
+        return result;
     }
 
     @Override

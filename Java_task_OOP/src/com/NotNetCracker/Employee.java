@@ -1,5 +1,7 @@
 package com.NotNetCracker;
 
+import java.util.Objects;
+
 public class Employee {
     private int id;
     private String firstName;
@@ -42,7 +44,20 @@ public class Employee {
     }
 
     public int raiseSalary(int persent){
-        return (salary + salary*persent/100);
+        return (int)(salary + salary*persent/100);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
