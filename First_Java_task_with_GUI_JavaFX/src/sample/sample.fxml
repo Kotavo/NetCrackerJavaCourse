@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="14.0" prefHeight="33.0" prefWidth="501.0" text="Java Basic Programming Structeres" textAlignment="CENTER">
+         <font>
+            <Font name="Times New Roman Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="93.0" prefHeight="33.0" prefWidth="245.0" text="Choose a task: " textOverrun="CLIP">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Label>
+      <ChoiceBox id="taskChoiceBox" fx:id="taskChoiceBox" layoutX="197.0" layoutY="97.0" prefHeight="25.0" prefWidth="292.0" />
+      <TextArea fx:id="outTextFrame" layoutX="12.0" layoutY="273.0" prefHeight="321.0" prefWidth="776.0" style="-fx-background-color: #2F4F4F; -fx-border-color: #000000;" />
+      <Button fx:id="runButton" layoutX="623.0" layoutY="112.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" text="Run">
+         <font>
+            <Font name="Times New Roman Bold" size="25.0" />
+         </font>
+      </Button>
+      <ChoiceBox id="subTaskChoiceBox" fx:id="subTaskChoiceBox" layoutX="197.0" layoutY="147.0" prefHeight="25.0" prefWidth="292.0" />
+      <ChoiceBox id="subTaskChoiceBox2" fx:id="subTaskChoiceBox2" layoutX="197.0" layoutY="147.0" prefHeight="25.0" prefWidth="292.0" />
+      <Text fx:id="textText" layoutX="28.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a subtask:" wrappingWidth="169.13671875">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
