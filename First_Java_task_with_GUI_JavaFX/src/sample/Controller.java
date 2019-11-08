@@ -1,6 +1,6 @@
 package sample;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -8,18 +8,12 @@ import java.util.ResourceBundle;
 import LogicalPath.MyArrays;
 import LogicalPath.MyFactorial;
 import LogicalPath.OneDimensionalArray;
-import javafx.application.Application;
-import javafx.beans.property.ReadOnlyIntegerProperty;
+import LogicalPath.TwoDimensionalArray;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import sun.font.Decoration;
+
 
 public class Controller {
 
@@ -60,14 +54,10 @@ public class Controller {
         assert textText != null : "fx:id=\"textText\" was not injected: check your FXML file 'sample.fxml'.";
         assert inputNField != null : "fx:id=\"inputNField\" was not injected: check your FXML file 'sample.fxml'.";
 
-
         subTaskChoiceBox.setVisible(false);
         subTaskChoiceBox2.setVisible(false);
         textText.setVisible(false);
         inputNField.setVisible(false);
-
-
-
 
 
         taskChoiceBox.setItems(FXCollections.observableArrayList(
@@ -98,19 +88,19 @@ public class Controller {
 
         taskChoiceBox.setOnAction(event -> {
 
-           if(taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")){
-               subTaskChoiceBox2.setVisible(false);
-               inputNField.setVisible(false);
-               subTaskChoiceBox.setVisible(true);
-               textText.setVisible(true);
-           }
+            if(taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")){
+                subTaskChoiceBox2.setVisible(false);
+                inputNField.setVisible(false);
+                subTaskChoiceBox.setVisible(true);
+                textText.setVisible(true);
+            }
 
-           if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")){
-               subTaskChoiceBox.setVisible(false);
-               inputNField.setVisible(false);
-               subTaskChoiceBox2.setVisible(true);
-               textText.setVisible(true);
-           }
+            if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")){
+                subTaskChoiceBox.setVisible(false);
+                inputNField.setVisible(false);
+                subTaskChoiceBox2.setVisible(true);
+                textText.setVisible(true);
+            }
 
             if (taskChoiceBox.getValue().equals("Arrays sorting")){
                 subTaskChoiceBox.setVisible(false);
@@ -133,14 +123,14 @@ public class Controller {
                 inputNField.setPromptText("Input size");
                 inputNField.setVisible(true);
             }
-       });
+        });
 
         runButton.setOnAction(event -> {
             if(taskChoiceBox.getValue().equals("Calculation of n! factorial") ){
-            String scan;
-            scan = inputNField.getText();
-            int n = Integer.parseInt(scan);
-            outTextFrame.clear();
+                String scan;
+                scan = inputNField.getText();
+                int n = Integer.parseInt(scan);
+                outTextFrame.clear();
                 long facResult = 0;
                 long startTime4 = System.nanoTime();
                 facResult = MyFactorial.loopFactorial(n);
@@ -212,60 +202,60 @@ public class Controller {
                 outTextFrame.appendText("\n");
 
                 for (int i = 1; i <= 8; i++) {
-                        for (int j = 1; j <= i; j++) {
-                            outTextFrame.appendText("# ");
-                        }
-                         outTextFrame.appendText("\n");
+                    for (int j = 1; j <= i; j++) {
+                        outTextFrame.appendText("# ");
+                    }
+                    outTextFrame.appendText("\n");
                 }
                 outTextFrame.appendText("\n");
 
 
 
-                    for(int i = 1; i <= 8; i++){
-                        for(int j = 8; j >= 1; --j){
-                            if(j < i){
-                                outTextFrame.appendText(" ");
-                            }
-                            else{
-                                outTextFrame.appendText("# ");
-                            }
+                for(int i = 1; i <= 8; i++){
+                    for(int j = 8; j >= 1; --j){
+                        if(j < i){
+                            outTextFrame.appendText(" ");
                         }
-                        outTextFrame.appendText("\n");
-                    }
-                 outTextFrame.appendText("\n");
-
-
-
-                    for(int i = 1; i <= 8; i++){
-                        for(int j = 8; j >= 1; --j){
-                            if(j > i){
-                                outTextFrame.appendText(" ");
-                            }
-                            else{
-                                outTextFrame.appendText("# ");
-                            }
+                        else{
+                            outTextFrame.appendText("# ");
                         }
-                        outTextFrame.appendText("\n");
                     }
+                    outTextFrame.appendText("\n");
+                }
                 outTextFrame.appendText("\n");
 
 
 
-                    for(int i = 1; i <= 8; i++){
-                        switch (i){
-                            case 1:
-                                outTextFrame.appendText("# # # # # # # #");
-                                break;
-                            case 8:
-                                outTextFrame.appendText("\n");
-                                outTextFrame.appendText("# # # # # # # #");
-                                break;
-                            default:
-                                outTextFrame.appendText("\n");
-                                outTextFrame.appendText("#                    #");
-                                break;
+                for(int i = 1; i <= 8; i++){
+                    for(int j = 8; j >= 1; --j){
+                        if(j > i){
+                            outTextFrame.appendText(" ");
+                        }
+                        else{
+                            outTextFrame.appendText("# ");
                         }
                     }
+                    outTextFrame.appendText("\n");
+                }
+                outTextFrame.appendText("\n");
+
+
+
+                for(int i = 1; i <= 8; i++){
+                    switch (i){
+                        case 1:
+                            outTextFrame.appendText("# # # # # # # #");
+                            break;
+                        case 8:
+                            outTextFrame.appendText("\n");
+                            outTextFrame.appendText("# # # # # # # #");
+                            break;
+                        default:
+                            outTextFrame.appendText("\n");
+                            outTextFrame.appendText("#                    #");
+                            break;
+                    }
+                }
 
 
 
@@ -360,19 +350,46 @@ public class Controller {
             }
 
             if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")){
+                outTextFrame.clear();
                 if (subTaskChoiceBox2.getValue().equals("Find the sum and multi of diagonal elements")){
-
+                    int[][] ar = new int[8][8];
+                    String result = "";
+                    TwoDimensionalArray.getRandomIntValue(ar, 1, 99);
+                    outTextFrame.appendText("Starting array: " + "\n");
+                    outTextFrame.appendText(Arrays.deepToString(ar) + "\n");
+                    result += TwoDimensionalArray.mainDiagonal(ar,result);
+                    outTextFrame.appendText(result);
+                    result = "";
+                    result += TwoDimensionalArray.secondaryDiagonal(ar,result);
+                    outTextFrame.appendText(result);
                 }
 
                 if (subTaskChoiceBox2.getValue().equals("Find max element id")){
-
+                    int[][] ar2 = new int[8][5];
+                    String result = "";
+                    TwoDimensionalArray.getRandomIntValue(ar2, -99, 99);
+                    outTextFrame.appendText(Arrays.deepToString(ar2) + "\n");
+                    result += TwoDimensionalArray.maxElement(ar2,result);
+                    outTextFrame.appendText(result);
                 }
 
                 if (subTaskChoiceBox2.getValue().equals("Index of the row with the largest product of elements")){
-
+                    int[][] ar3 = new int[8][5];
+                    String result = "";
+                    TwoDimensionalArray.getRandomIntValue(ar3, -10, 10);
+                    outTextFrame.appendText(Arrays.deepToString(ar3) + "\n");
+                    result += TwoDimensionalArray.rowWithMaxMulti(ar3,result);
+                    outTextFrame.appendText(result);
                 }
 
                 if (subTaskChoiceBox2.getValue().equals("Sort each row descending")){
+                    int[][] arr4 = new int[10][7];
+                    TwoDimensionalArray.getRandomIntValue(arr4, 0, 100);
+                    outTextFrame.appendText("Starting array: " + "\n");
+                    outTextFrame.appendText(Arrays.deepToString(arr4));
+                    outTextFrame.appendText("\n" + "Result of RowSort: " + "\n");
+                    TwoDimensionalArray.rowArraySOrt(arr4);
+                    outTextFrame.appendText(Arrays.deepToString(arr4));
 
                 }
 
