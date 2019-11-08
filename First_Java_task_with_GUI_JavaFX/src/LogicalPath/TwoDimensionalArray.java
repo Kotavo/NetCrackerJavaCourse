@@ -28,7 +28,7 @@ public class TwoDimensionalArray {
         }
     }
 
-    public static void mainDiagonal(int[][] arr) {
+    public static String mainDiagonal(int[][] arr,String result) {
         int sum = 0;
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
@@ -39,12 +39,12 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        System.out.println("Main Diagonal: ");
-        System.out.println("Sum: " + sum + "\n" + "Multi: " + mult);
-        System.out.println();
+        result += "Main Diagonal: " + "\n";
+        result += "Sum: " + sum + "\n" + "Multi: " + mult + "\n";
+        return result;
     }
 
-    public static void secondaryDiagonal(int[][] arr) {
+    public static String secondaryDiagonal(int[][] arr, String result) {
         int sum = 0;
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
@@ -55,12 +55,13 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        System.out.println("Secondary Diagonal: ");
-        System.out.println("Sum: " + sum + "\n" + "Multi: " + mult);
-        System.out.println();
+        result += "Secondary Diagonal: " + "\n";
+        result += "Sum: " + sum + "\n" + "Multi: " + mult + "\n";
+        return result;
+
     }
 
-    public static void maxElement(int[][] arr) {
+    public static String maxElement(int[][] arr, String result) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
@@ -69,18 +70,20 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        System.out.print("\n" + "Max value: " + max + "\n" + "Index of max value: ");
+        result += "\n" + "Max value: " + max + "\n" + "Index of max value: ";
+
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 if (arr[i][j] == max) {
-                    System.out.print(" [" + i + "]" + "[" + j + "]");
+                    result += " [" + i + "]" + "[" + j + "]";
                 }
             }
         }
-        System.out.println();
+        result += "\n";
+        return result;
     }
 
-    public static void rowWithMaxMulti(int[][] arr) {
+    public static String rowWithMaxMulti(int[][] arr,String result) {
         long rowMulti = 1;
         long temp = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -93,19 +96,21 @@ public class TwoDimensionalArray {
             }
             rowMulti = 1;
         }
-        System.out.println();
-        System.out.println("Max multi is: " + temp);
-        System.out.print("Row with max multi: ");
+        result += "\n";
+        result += "Max multi is: " + temp + "\n";
+        result += "Row with max multi: " + "\n";
+
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 rowMulti *= arr[i][j];
             }
             rowMulti = Math.abs(rowMulti);
             if (rowMulti == temp) {
-                System.out.print(" " + i + " ");
+                result += " " + i + " ";
             }
             rowMulti = 1;
         }
+        return result;
     }
 
     public static int[][] rowArraySOrt(int[][] arr) {
