@@ -177,14 +177,14 @@ public class Main {
                     scan2 = in.next();
                     switch (scan2) {
                         case "a":
-                            int ar[][] = new int[8][8];
+                            int[][] ar = new int[8][8];
                             TwoDimensionalArray.getRandomIntValue(ar, 1, 99);
                             TwoDimensionalArray.arrayOutput(ar);
                             TwoDimensionalArray.mainDiagonal(ar);
                             TwoDimensionalArray.secondaryDiagonal(ar);
                             break;
                         case "b":
-                            int ar2[][] = new int[8][5];
+                            int[][] ar2 = new int[8][5];
                             TwoDimensionalArray.getRandomIntValue(ar2, -99, 99);
                             TwoDimensionalArray.arrayOutput(ar2);
                             TwoDimensionalArray.maxElement(ar2);
