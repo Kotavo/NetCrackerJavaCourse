@@ -57,10 +57,11 @@ public class Rectangle extends  Shape {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Rectangle)) return false;
-        if (!super.equals(o)) return false;
         Rectangle rectangle = (Rectangle) o;
         return Double.compare(rectangle.width, width) == 0 &&
-                Double.compare(rectangle.length, length) == 0;
+                Double.compare(rectangle.length, length) == 0 &&
+                this.getColor().equals(rectangle.getColor()) &&
+                this.isFilled() == rectangle.isFilled();
     }
 
     @Override
