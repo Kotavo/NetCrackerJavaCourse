@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.Points;
 
+import java.util.Objects;
+
 public class Point2D {
     private float x = 0.0f;
     private float y = 0.0f;
@@ -42,5 +44,19 @@ public class Point2D {
                 x +
                 ", " + y +
                 " )";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point2D)) return false;
+        Point2D point2D = (Point2D) o;
+        return Float.compare(point2D.x, x) == 0 &&
+                Float.compare(point2D.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

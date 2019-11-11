@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.MovablePoint;
 
+import java.util.Objects;
+
 public class Point {
     private float  x = 0.0f;
     private float  y = 0.0f;
@@ -42,5 +44,19 @@ public class Point {
                 x +
                 ", " + y +
                 " )";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return Float.compare(point.x, x) == 0 &&
+                Float.compare(point.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

@@ -48,4 +48,14 @@ public class Square extends Rectangle{
                 ", filled= " + super.isFilled() +
                 " }";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

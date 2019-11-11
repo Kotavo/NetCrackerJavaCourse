@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.MovableInterface;
 
+import java.util.Objects;
+
 public class MovableCircle implements Movable {
     private int radius;
     private MovablePoint center;
@@ -34,5 +36,19 @@ public class MovableCircle implements Movable {
         return "MovableCircle{ center= "  + center +
                 ", radius= " + radius +
                 " }";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MovableCircle)) return false;
+        MovableCircle circle = (MovableCircle) o;
+        return radius == circle.radius &&
+                center.equals(circle.center);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius, center);
     }
 }

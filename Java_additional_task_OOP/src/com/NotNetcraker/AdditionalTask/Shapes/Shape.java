@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.Shapes;
 
+import java.util.Objects;
+
 public class Shape {
     private String color = "red";
     private boolean filled = true;
@@ -32,5 +34,19 @@ public class Shape {
                 "color='" + color + '\'' +
                 ", filled=" + filled +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Shape)) return false;
+        Shape shape = (Shape) o;
+        return filled == shape.filled &&
+                color.equals(shape.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, filled);
     }
 }

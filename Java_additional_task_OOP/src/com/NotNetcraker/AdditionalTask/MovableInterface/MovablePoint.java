@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.MovableInterface;
 
+import java.util.Objects;
+
 public class MovablePoint  implements Movable{
     int x;
     int y;
@@ -43,5 +45,19 @@ public class MovablePoint  implements Movable{
                 " ), Speed ( " + xSpeed +
                 ", " + ySpeed +
                 " )";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MovablePoint)) return false;
+        MovablePoint point = (MovablePoint) o;
+        return x == point.x &&
+                y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

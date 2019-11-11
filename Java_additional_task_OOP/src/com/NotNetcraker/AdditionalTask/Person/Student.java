@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.Person;
 
+import java.util.Objects;
+
 public class Student extends Person {
     private String program;
     private  int year;
@@ -45,5 +47,21 @@ public class Student extends Person {
                 ", year=" + year +
                 ", fee=" + fee +
                 "} " ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        if (!super.equals(o)) return false;
+        Student student = (Student) o;
+        return year == student.year &&
+                Double.compare(student.fee, fee) == 0 &&
+                program.equals(student.program);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), program, year, fee);
     }
 }

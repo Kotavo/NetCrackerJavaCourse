@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.AbstractShapes;
 
+import java.util.Objects;
+
 public class Circle extends Shape {
     protected double radius ;
 
@@ -39,6 +41,21 @@ public class Circle extends Shape {
                 ", color= " + super.getColor() +
                 ", filled= " + super.isFilled() +
                 " }";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Circle)) return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.radius, radius) == 0 &&
+                this.color.equals(circle.color) &&
+                this.filled == circle.filled;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius,color,filled);
     }
 }
 

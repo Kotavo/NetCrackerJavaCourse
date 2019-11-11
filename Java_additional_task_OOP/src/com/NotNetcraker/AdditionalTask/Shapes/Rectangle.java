@@ -1,5 +1,7 @@
 package com.NotNetcraker.AdditionalTask.Shapes;
 
+import java.util.Objects;
+
 public class Rectangle extends  Shape {
     private double width = 1.0;
     private double length = 1.0;
@@ -49,5 +51,20 @@ public class Rectangle extends  Shape {
                 ", color= " + super.getColor() +
                 ", filled= " + super.isFilled() +
                 " }";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rectangle)) return false;
+        if (!super.equals(o)) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.width, width) == 0 &&
+                Double.compare(rectangle.length, length) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), width, length);
     }
 }
