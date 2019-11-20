@@ -1,6 +1,5 @@
 package sample;
 
-
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -85,38 +84,37 @@ public class Controller {
         ));
 
 
-
         taskChoiceBox.setOnAction(event -> {
 
-            if(taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")){
+            if (taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")) {
                 subTaskChoiceBox2.setVisible(false);
                 inputNField.setVisible(false);
                 subTaskChoiceBox.setVisible(true);
                 textText.setVisible(true);
             }
 
-            if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")){
+            if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")) {
                 subTaskChoiceBox.setVisible(false);
                 inputNField.setVisible(false);
                 subTaskChoiceBox2.setVisible(true);
                 textText.setVisible(true);
             }
 
-            if (taskChoiceBox.getValue().equals("Arrays sorting")){
+            if (taskChoiceBox.getValue().equals("Arrays sorting")) {
                 subTaskChoiceBox.setVisible(false);
                 subTaskChoiceBox2.setVisible(false);
                 textText.setVisible(false);
                 inputNField.setVisible(true);
             }
 
-            if (taskChoiceBox.getValue().equals("Calculation of n! factorial")){
+            if (taskChoiceBox.getValue().equals("Calculation of n! factorial")) {
                 subTaskChoiceBox.setVisible(false);
                 subTaskChoiceBox2.setVisible(false);
                 textText.setVisible(false);
                 inputNField.setVisible(true);
             }
 
-            if (taskChoiceBox.getValue().equals("Drawing shapes using nested loops")){
+            if (taskChoiceBox.getValue().equals("Drawing shapes using nested loops")) {
                 subTaskChoiceBox.setVisible(false);
                 subTaskChoiceBox2.setVisible(false);
                 textText.setVisible(false);
@@ -126,7 +124,7 @@ public class Controller {
         });
 
         runButton.setOnAction(event -> {
-            if(taskChoiceBox.getValue().equals("Calculation of n! factorial") ){
+            if (taskChoiceBox.getValue().equals("Calculation of n! factorial")) {
                 String scan;
                 scan = inputNField.getText();
                 int n = Integer.parseInt(scan);
@@ -146,7 +144,7 @@ public class Controller {
                         "\n" + "better time: " + Math.min(estimatedTime4, estimatedTime5) + "\n");
 
             }
-            if(taskChoiceBox.getValue().equals("Arrays sorting") ){
+            if (taskChoiceBox.getValue().equals("Arrays sorting")) {
                 String scan;
                 scan = inputNField.getText();
                 int n = Integer.parseInt(scan);
@@ -162,32 +160,32 @@ public class Controller {
                 long startTime1 = System.nanoTime();
                 MyArrays.selectionSort(arr1);
                 double estimatedTime1 = (System.nanoTime() - startTime1 / 1000000.0);
-                outTextFrame.appendText( "\n" + "Result of Selection sort: " + "\n" + Arrays.toString(arr1));
+                outTextFrame.appendText("\n" + "Result of Selection sort: " + "\n" + Arrays.toString(arr1));
 
 
                 long startTime2 = System.nanoTime();
                 MyArrays.intBubbleSort(arr2);
                 double estimatedTime2 = (System.nanoTime() - startTime2) / 1000000.0;
-                outTextFrame.appendText( "\n" + "Result of Bubble sort: " + "\n" + Arrays.toString(arr2));
+                outTextFrame.appendText("\n" + "Result of Bubble sort: " + "\n" + Arrays.toString(arr2));
 
 
                 long startTime3 = System.nanoTime();
                 Arrays.sort(arr3);
                 double estimatedTime3 = (System.nanoTime() - startTime3) / 1000000.0;
-                outTextFrame.appendText( "\n" + "Result of Array.sort: " + "\n" + Arrays.toString(arr3));
+                outTextFrame.appendText("\n" + "Result of Array.sort: " + "\n" + Arrays.toString(arr3));
 
 
-                outTextFrame.appendText( "\n" + "\n" + "Selection sort time: " + estimatedTime1 + " millisec" + "\n"
+                outTextFrame.appendText("\n" + "\n" + "Selection sort time: " + estimatedTime1 + " millisec" + "\n"
                         + "Bubble sort time: " + estimatedTime2 + " millisec" + "\n"
                         + "Arrays.sort time: " + estimatedTime3 + " millisec" + "\n");
 
                 double result = Math.min(estimatedTime1, estimatedTime2);
                 result = Math.min(result, estimatedTime3);
-                outTextFrame.appendText( "\n" + "Better time: " + result + " millisec");
+                outTextFrame.appendText("\n" + "Better time: " + result + " millisec");
 
             }
 
-            if (taskChoiceBox.getValue().equals("Drawing shapes using nested loops")){
+            if (taskChoiceBox.getValue().equals("Drawing shapes using nested loops")) {
                 String scan;
                 scan = inputNField.getText();
                 int n = Integer.parseInt(scan);
@@ -210,13 +208,11 @@ public class Controller {
                 outTextFrame.appendText("\n");
 
 
-
-                for(int i = 1; i <= 8; i++){
-                    for(int j = 8; j >= 1; --j){
-                        if(j < i){
+                for (int i = 1; i <= 8; i++) {
+                    for (int j = 8; j >= 1; --j) {
+                        if (j < i) {
                             outTextFrame.appendText(" ");
-                        }
-                        else{
+                        } else {
                             outTextFrame.appendText("# ");
                         }
                     }
@@ -225,13 +221,11 @@ public class Controller {
                 outTextFrame.appendText("\n");
 
 
-
-                for(int i = 1; i <= 8; i++){
-                    for(int j = 8; j >= 1; --j){
-                        if(j > i){
+                for (int i = 1; i <= 8; i++) {
+                    for (int j = 8; j >= 1; --j) {
+                        if (j > i) {
                             outTextFrame.appendText(" ");
-                        }
-                        else{
+                        } else {
                             outTextFrame.appendText("# ");
                         }
                     }
@@ -240,9 +234,8 @@ public class Controller {
                 outTextFrame.appendText("\n");
 
 
-
-                for(int i = 1; i <= 8; i++){
-                    switch (i){
+                for (int i = 1; i <= 8; i++) {
+                    switch (i) {
                         case 1:
                             outTextFrame.appendText("# # # # # # # #");
                             break;
@@ -258,15 +251,11 @@ public class Controller {
                 }
 
 
-
-
-
-
             }
 
-            if (taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")){
+            if (taskChoiceBox.getValue().equals("Tasks on one-dimensional arrays")) {
                 outTextFrame.clear();
-                if (subTaskChoiceBox.getValue().equals("Output array in ascending and descending order")){
+                if (subTaskChoiceBox.getValue().equals("Output array in ascending and descending order")) {
                     int[] oddArr = new int[50];
                     OneDimensionalArray.getOddValue(oddArr);
                     outTextFrame.appendText("Ascending odd array: ");
@@ -277,19 +266,18 @@ public class Controller {
                     outTextFrame.appendText(Arrays.toString(oddArr));
 
                 }
-                if (subTaskChoiceBox.getValue().equals("Output the number of even and odd elements")){
+                if (subTaskChoiceBox.getValue().equals("Output the number of even and odd elements")) {
                     int[] testArr = new int[20];
-                    String result = "";
                     MyArrays.randomIntValues(testArr, 0, 10);
                     outTextFrame.appendText("Starting Array: " + "\n");
                     outTextFrame.appendText(Arrays.toString(testArr));
                     outTextFrame.appendText("\n");
-                    result = OneDimensionalArray.oddAndEvenElementsOnArray(testArr,result);
+                    String result = OneDimensionalArray.oddAndEvenElementsOnArray(testArr);
                     outTextFrame.appendText(result);
 
                 }
 
-                if (subTaskChoiceBox.getValue().equals("Replace each element with odd index by 0")){
+                if (subTaskChoiceBox.getValue().equals("Replace each element with odd index by 0")) {
                     int[] anotherTestArr = new int[10];
                     MyArrays.randomIntValues(anotherTestArr, 0, 100);
                     outTextFrame.appendText("Starting Array: " + "\n");
@@ -300,18 +288,17 @@ public class Controller {
                     outTextFrame.appendText(Arrays.toString(anotherTestArr));
                 }
 
-                if (subTaskChoiceBox.getValue().equals("Search for max and min")){
+                if (subTaskChoiceBox.getValue().equals("Search for max and min")) {
                     int[] arr5 = new int[15];
-                    String result ="";
                     MyArrays.randomIntValues(arr5, -50, 50);
                     outTextFrame.appendText("Starting Array: " + "\n");
                     outTextFrame.appendText(Arrays.toString(arr5));
                     outTextFrame.appendText("\n");
-                    result = OneDimensionalArray.minMaxAndEntryOfelements(arr5,result);
+                    String result = OneDimensionalArray.minMaxAndEntryOfelements(arr5);
                     outTextFrame.appendText(result);
                 }
 
-                if (subTaskChoiceBox.getValue().equals("Search for avg of elements of each array")){
+                if (subTaskChoiceBox.getValue().equals("Search for avg of elements of each array")) {
                     int[] arr6 = new int[10];
                     int[] arr7 = new int[10];
                     MyArrays.randomIntValues(arr6, 0, 10);
@@ -336,53 +323,50 @@ public class Controller {
                         }
                     }
                 }
-                if(subTaskChoiceBox.getValue().equals("Found most often elements")){
+                if (subTaskChoiceBox.getValue().equals("Found most often elements")) {
                     int[] arr8 = new int[20];
-                    String result ="";
                     MyArrays.randomIntValues(arr8, -1, 1);
                     outTextFrame.appendText("Starting array: " + "\n");
                     outTextFrame.appendText(Arrays.toString(arr8));
                     outTextFrame.appendText("\n");
-                    result = OneDimensionalArray.whichElement(arr8,result);
+                    String result = OneDimensionalArray.whichElement(arr8);
                     outTextFrame.appendText(result);
                 }
 
             }
 
-            if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")){
+            if (taskChoiceBox.getValue().equals("Tasks on two-dimensional arrays")) {
                 outTextFrame.clear();
-                if (subTaskChoiceBox2.getValue().equals("Find the sum and multi of diagonal elements")){
+                if (subTaskChoiceBox2.getValue().equals("Find the sum and multi of diagonal elements")) {
                     int[][] ar = new int[8][8];
-                    String result = "";
+                    StringBuffer result = new StringBuffer("");
                     TwoDimensionalArray.getRandomIntValue(ar, 1, 99);
                     outTextFrame.appendText("Starting array: " + "\n");
                     outTextFrame.appendText(Arrays.deepToString(ar) + "\n");
-                    result += TwoDimensionalArray.mainDiagonal(ar,result);
-                    outTextFrame.appendText(result);
-                    result = "";
-                    result += TwoDimensionalArray.secondaryDiagonal(ar,result);
-                    outTextFrame.appendText(result);
+                    result.append(TwoDimensionalArray.mainDiagonal(ar));
+                    outTextFrame.appendText(result.toString());
+                    result.delete(0, result.length() + 1);
+                    result.append(TwoDimensionalArray.secondaryDiagonal(ar));
+                    outTextFrame.appendText(result.toString());
                 }
 
-                if (subTaskChoiceBox2.getValue().equals("Find max element id")){
+                if (subTaskChoiceBox2.getValue().equals("Find max element id")) {
                     int[][] ar2 = new int[8][5];
-                    String result = "";
                     TwoDimensionalArray.getRandomIntValue(ar2, -99, 99);
                     outTextFrame.appendText(Arrays.deepToString(ar2) + "\n");
-                    result += TwoDimensionalArray.maxElement(ar2,result);
+                    String result = TwoDimensionalArray.maxElement(ar2);
                     outTextFrame.appendText(result);
                 }
 
-                if (subTaskChoiceBox2.getValue().equals("Index of the row with the largest product of elements")){
+                if (subTaskChoiceBox2.getValue().equals("Index of the row with the largest product of elements")) {
                     int[][] ar3 = new int[8][5];
-                    String result = "";
                     TwoDimensionalArray.getRandomIntValue(ar3, -10, 10);
                     outTextFrame.appendText(Arrays.deepToString(ar3) + "\n");
-                    result += TwoDimensionalArray.rowWithMaxMulti(ar3,result);
+                    String result = TwoDimensionalArray.rowWithMaxMulti(ar3);
                     outTextFrame.appendText(result);
                 }
 
-                if (subTaskChoiceBox2.getValue().equals("Sort each row descending")){
+                if (subTaskChoiceBox2.getValue().equals("Sort each row descending")) {
                     int[][] arr4 = new int[10][7];
                     TwoDimensionalArray.getRandomIntValue(arr4, 0, 100);
                     outTextFrame.appendText("Starting array: " + "\n");
@@ -394,12 +378,9 @@ public class Controller {
                 }
 
 
-
             }
 
         });
-
-
 
 
     }

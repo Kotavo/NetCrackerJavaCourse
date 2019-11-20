@@ -1,4 +1,5 @@
 package LogicalPath;
+
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
@@ -28,7 +29,8 @@ public class TwoDimensionalArray {
         }
     }
 
-    public static String mainDiagonal(int[][] arr,String result) {
+    public static String mainDiagonal(int[][] arr) {
+        StringBuffer result = new StringBuffer("");
         int sum = 0;
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
@@ -39,12 +41,13 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        result += "Main Diagonal: " + "\n";
-        result += "Sum: " + sum + "\n" + "Multi: " + mult + "\n";
-        return result;
+        result.append("Main Diagonal: " + "\n");
+        result.append("Sum: ").append(sum).append("\n").append("Multi: ").append(mult).append("\n");
+        return result.toString();
     }
 
-    public static String secondaryDiagonal(int[][] arr, String result) {
+    public static String secondaryDiagonal(int[][] arr) {
+        StringBuffer result = new StringBuffer("");
         int sum = 0;
         long mult = 1;
         for (int i = 0; i < arr.length; i++) {
@@ -55,13 +58,14 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        result += "Secondary Diagonal: " + "\n";
-        result += "Sum: " + sum + "\n" + "Multi: " + mult + "\n";
-        return result;
+        result.append("Secondary Diagonal: " + "\n");
+        result.append("Sum: ").append(sum).append("\n").append("Multi: ").append(mult).append("\n");
+        return result.toString();
 
     }
 
-    public static String maxElement(int[][] arr, String result) {
+    public static String maxElement(int[][] arr) {
+        StringBuffer result = new StringBuffer("");
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
@@ -70,20 +74,21 @@ public class TwoDimensionalArray {
                 }
             }
         }
-        result += "\n" + "Max value: " + max + "\n" + "Index of max value: ";
+        result.append("\n" + "Max value: ").append(max).append("\n").append("Index of max value: ");
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 if (arr[i][j] == max) {
-                    result += " [" + i + "]" + "[" + j + "]";
+                    result.append(" [").append(i).append("]").append("[").append(j).append("]");
                 }
             }
         }
-        result += "\n";
-        return result;
+        result.append("\n");
+        return result.toString();
     }
 
-    public static String rowWithMaxMulti(int[][] arr,String result) {
+    public static String rowWithMaxMulti(int[][] arr) {
+        StringBuffer result = new StringBuffer("");
         long rowMulti = 1;
         long temp = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -96,9 +101,9 @@ public class TwoDimensionalArray {
             }
             rowMulti = 1;
         }
-        result += "\n";
-        result += "Max multi is: " + temp + "\n";
-        result += "Row with max multi: " + "\n";
+        result.append("\n");
+        result.append("Max multi is: ").append(temp).append("\n");
+        result.append("Row with max multi: " + "\n");
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
@@ -106,11 +111,11 @@ public class TwoDimensionalArray {
             }
             rowMulti = Math.abs(rowMulti);
             if (rowMulti == temp) {
-                result += " " + i + " ";
+                result.append(" ").append(i).append(" ");
             }
             rowMulti = 1;
         }
-        return result;
+        return result.toString();
     }
 
     public static int[][] rowArraySOrt(int[][] arr) {

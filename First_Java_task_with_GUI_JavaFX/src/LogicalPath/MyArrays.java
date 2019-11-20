@@ -1,5 +1,7 @@
 package LogicalPath;
+
 import java.util.Arrays;
+
 import sample.Controller;
 
 public class MyArrays {
@@ -54,11 +56,11 @@ public class MyArrays {
         return Arrays.copyOf(arr, arr.length);
     }
 
-    public static float arrayAvg(int[] arr){
+    public static float arrayAvg(int[] arr) {
         float avg = 0;
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             avg += arr[i];
         }
-        return avg/arr.length;
+        return avg / arr.length;
     }
 }

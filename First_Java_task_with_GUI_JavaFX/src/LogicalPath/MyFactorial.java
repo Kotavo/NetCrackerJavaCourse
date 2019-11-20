@@ -1,4 +1,5 @@
 package LogicalPath;
+
 public class MyFactorial {
     public static long loopFactorial(int value) {
         if (value <= 1) {
