@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
    transient private int size = 0;
@@ -128,13 +129,57 @@ public class MyLinkedList<E> implements ILinkedList<E> {
     }
 
     @Override
-    public E[] toArray() {
-        return null;
+    @SuppressWarnings("unchecked")
+    public E[] toArray(E[] result) {
+         if(result.length < size)
+            result  = (E[])java.lang.reflect.Array.newInstance(
+                            result.getClass().getComponentType(), size);
+
+        int i = 0;
+        for (Node<E> temp = first; temp != null; temp = temp.nextNode)
+            result[i++] = temp.element;
+
+        if (result.length > size)
+            result[size] = null;
+
+        return result;
     }
 
     @Override
-    public Iterator iterator() {
-        return null;
+    public Object[] toArray() {
+        Object[] result = new Object[size];
+        int i = 0;
+        for (Node<E> temp = first; temp != null; temp = temp.nextNode)
+            result[i++] = temp.element;
+        return result;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+           private int index = 0;
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext())
+                    throw new NoSuchElementException();
+                return get(index++);
+            }
+        };
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer temp = new StringBuffer("[ ");
+        for(int i = 0; i < size - 1;i++){
+            temp.append(get(i)).append(", ");
+        }
+        temp.append(get(size-1)).append(" ]");
+        return temp.toString();
     }
 
     private boolean isPositionIndex(int index) {
