@@ -1,3 +1,5 @@
+package com.NotNetCracker;
+
 import java.util.Objects;
 
 public class Person {
@@ -23,7 +25,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person (" +
+        return "com.NotNetCracker.Person (" +
             "name='" + name + '\'' +
             ", adress='" + address + '\'' +
             ')';

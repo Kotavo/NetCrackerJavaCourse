@@ -1,3 +1,5 @@
+package com.NotNetCracker;
+
 import java.util.Iterator;
 
 public interface ILinkedList<E> extends Iterable<E> {

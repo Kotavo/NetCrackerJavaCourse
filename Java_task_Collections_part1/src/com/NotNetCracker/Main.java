@@ -1,3 +1,5 @@
+package com.NotNetCracker;
+
 import java.util.Arrays;
 
 public class Main {
@@ -16,7 +18,7 @@ public class Main {
         System.out.println(myLinkedList);
 
         System.out.println("\nGetting element by index(4)   " + myLinkedList.get(4));
-        System.out.println("Getting index Person (Bob3, address3)  " + myLinkedList.indexOf(new Person("Bob3","address3")));
+        System.out.println("Getting index com.NotNetCracker.Person (Bob3, address3)  " + myLinkedList.indexOf(new Person("Bob3","address3")));
 
         System.out.println("\nLet's add Rob into 2 position" );
         myLinkedList.add(2,new Person("Rob","RobAdress"));
