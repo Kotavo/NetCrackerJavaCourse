@@ -4,30 +4,30 @@ import java.util.Objects;
 
 public class Person {
     private String name;
-    private String adress;
+    private String address;
 
-    public Person(String name, String adress){
+    public Person(String name, String address){
         this.name = name;
-        this.adress = adress;
+        this.address = address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     @Override
     public String toString() {
         return "Person [" +
                 "name='" + name + '\'' +
-                ", adress='" + adress + '\'' +
+                ", adress='" + address + '\'' +
                 ']';
     }
 
@@ -37,11 +37,11 @@ public class Person {
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
         return name.equals(person.name) &&
-                adress.equals(person.adress);
+                address.equals(person.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, adress);
+        return Objects.hash(name, address);
     }
 }
