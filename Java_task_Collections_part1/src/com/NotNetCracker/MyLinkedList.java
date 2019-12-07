@@ -1,7 +1,5 @@
 package com.NotNetCracker;
 
-import com.NotNetCracker.ILinkedList;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 

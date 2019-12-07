@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        //Test Unit
 
+/*
+        //Test Unit
         MyLinkedList<Person> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(new Person("Bob0","address0"));
         myLinkedList.add(new Person("Bob1","address1"));
@@ -32,7 +33,15 @@ public class Main {
         Person[] people = new Person[5];
         myLinkedList.toArray(people);
         System.out.println(Arrays.toString(people));
-
         //Test Unit
+*/
+
+/*        //Test Unit for task2
+        CollectionTest.MyListCompareToLinkedList(100000);
+        CollectionTest.ArrayListCompareToLinkedList(100000);
+        CollectionTest.HashSetCompareToLinkedHashSetAndTreeSet(100000);
+        CollectionTest.HashMapCompareToLinkedHashMapAndTreeMap(100000);
+        //Test Unit for task2
+*/
     }
 }
