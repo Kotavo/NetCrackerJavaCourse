@@ -29,7 +29,7 @@ public class Main {
                     MyArrays.arrayOutput(arr1);
                     long startTime1 = System.nanoTime();
                     MyArrays.selectionSort(arr1);
-                    double estimatedTime1 = (System.nanoTime() - startTime1 / 1000000.0);
+                    double estimatedTime1 = (System.nanoTime() - startTime1) / 1000000.0);
                     System.out.println("Result of Selection sort: ");
                     MyArrays.arrayOutput(arr1);
 
