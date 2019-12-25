@@ -1,0 +1,2 @@
+Person{id=1, firstName='2', secondName='2', salary='2', mail='2', workPlace='2'}
+Person{id=1, firstName='1', secondName='1', salary='1', mail='1', workPlace='1'}

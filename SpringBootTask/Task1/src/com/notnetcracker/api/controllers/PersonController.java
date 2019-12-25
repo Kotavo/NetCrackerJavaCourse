@@ -17,6 +17,12 @@ public class PersonController {
     @Autowired
     private PersonService persons;
 
+    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
+    public String index() {
+        return "index";
+    }
+
+
     @RequestMapping(value = {"/personList"}, method = RequestMethod.GET)
     public String personList(Model model) {
         model.addAttribute("persons", persons);
