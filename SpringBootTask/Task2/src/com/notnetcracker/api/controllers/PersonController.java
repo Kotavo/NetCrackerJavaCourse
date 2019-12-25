@@ -6,6 +6,7 @@ import com.notnetcracker.service.PersonService;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PersonController {
     @Autowired
     private PersonService persons;
+
+    private String errorMessage = "Field values is required!";
 
     @RequestMapping(value = {"/personList"}, method = RequestMethod.GET)
     public String personList(Model model) {
@@ -38,9 +41,17 @@ public class PersonController {
         String salary = personForm.getSalary();
         String mail = personForm.getMail();
         String workPlace = personForm.getWorkPlace();
-        Person newPerson = new Person(id, firstName, lastName, salary, mail, workPlace);
-        persons.addPerson(newPerson);
-        persons.writeInFile(newPerson);
-        return "redirect:/personList";
+        if (firstName != null && firstName.length() > 0
+            && lastName != null && lastName.length() > 0
+            && salary != null && salary.length() > 0
+            && mail != null && mail.length() > 0
+            && workPlace != null && workPlace.length() > 0){
+            Person newPerson = new Person(id, firstName, lastName, salary, mail, workPlace);
+            persons.addPerson(newPerson);
+            return "redirect:/personList";
+        }
+        model.addAttribute("errorMessage", errorMessage);
+        return "addPerson";
     }
+
 }
