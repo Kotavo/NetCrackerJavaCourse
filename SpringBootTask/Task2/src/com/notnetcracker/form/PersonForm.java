@@ -1,18 +1,18 @@
 package com.notnetcracker.form;
 
 public class PersonForm {
-    private int id;
+    private String id;
     private String firstName;
     private String secondName;
     private String salary;
     private String mail;
     private String workPlace;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
