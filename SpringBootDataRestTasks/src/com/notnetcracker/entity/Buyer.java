@@ -31,6 +31,7 @@ public class Buyer {
         this.discount = discount;
     }
 
+    public Buyer(){}
 
     public int getId() {
         return id;

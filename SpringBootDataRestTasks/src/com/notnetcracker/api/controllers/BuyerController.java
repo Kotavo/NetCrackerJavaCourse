@@ -60,7 +60,7 @@ public class BuyerController {
 
     @PatchMapping("/update/discount")
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateCostById(@RequestParam int id, float discount){
+    public void updateDiscountById(@RequestParam int id, float discount){
         buyerService.updateDiscountById(id, discount);
     }
 
@@ -72,7 +72,7 @@ public class BuyerController {
 
     @PatchMapping("/update/district")
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateDeportById(@RequestParam int id, String district){
+    public void updateDistrictById(@RequestParam int id, String district){
         buyerService.updateDistrictById(id, district);
     }
 
@@ -86,7 +86,7 @@ public class BuyerController {
 
     @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void addBuyer(@RequestParam int id, String name, String district, float discount){
+    public void addBuyer(@RequestParam String name, String district, float discount){
         buyerService.addBuyer(name, district, discount);
     }
 

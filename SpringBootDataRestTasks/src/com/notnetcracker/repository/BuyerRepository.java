@@ -22,28 +22,28 @@ public interface BuyerRepository extends JpaRepository<Buyer, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "update buyer set buyer_name = :name where buyer_id = :id", nativeQuery = true)
+    @Query(value = "update buyers set buyer_name = :name where buyer_id = :id", nativeQuery = true)
     void updateNameById(@Param("id") int id, @Param("name") String name);
 
     @Transactional
     @Modifying
-    @Query(value = "update buyer set buyer_district = :district where buyer_id = :id", nativeQuery = true)
+    @Query(value = "update buyers set buyer_district = :district where buyer_id = :id", nativeQuery = true)
     void updateDistrictById(@Param("id") int id, @Param("district") String district);
 
     @Transactional
     @Modifying
-    @Query(value = "update buyer set buyer_discount = :discount where buyer_id = :id", nativeQuery = true)
+    @Query(value = "update buyers set buyer_discount = :discount where buyer_id = :id", nativeQuery = true)
     void updateDiscountById(@Param("id") int id, @Param("discount") float discount);
 
 
     @Transactional
     @Modifying
-    @Query(value = "update buyer set (buyers_name, buyer_district ,buyer_discount) = (:name, :district, :discount) where buyer_id = :id", nativeQuery = true)
+    @Query(value = "update buyers set (buyer_name, buyer_district ,buyer_discount) = (:name, :district, :discount) where buyer_id = :id", nativeQuery = true)
     void updateAllById(@Param("id") int id, @Param("name") String name, @Param("district") String district, @Param("discount") float discount);
 
     @Transactional
     @Modifying
-    @Query(value = "insert into buyers(buyers_name, buyer_district ,buyer_discount) values (:name, :district, :discount)", nativeQuery = true)
+    @Query(value = "insert into buyers(buyer_name, buyer_district ,buyer_discount) values (:name, :district, :discount)", nativeQuery = true)
     void addBuyer(@Param("name") String name, @Param("district") String district, @Param("discount") float discount);
 
 

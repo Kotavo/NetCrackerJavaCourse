@@ -31,6 +31,8 @@ public class Store {
         this.commission = commission;
     }
 
+    public Store(){}
+
     public int getId() {
         return id;
     }

@@ -25,7 +25,7 @@ public class BuyerService {
     }
 
     public void updateNameById(int id, String name){
-        buyerRepository.updateNameById(id,name);
+        buyerRepository.updateNameById(id, name);
     }
 
     public void updateDiscountById(int id, float discount){

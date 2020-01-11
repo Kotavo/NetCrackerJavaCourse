@@ -44,6 +44,7 @@ public class Order {
         this.quantity = quantity;
         this.amount = amount;
     }
+    public Order(){}
 
     public int getId() {
         return id;
