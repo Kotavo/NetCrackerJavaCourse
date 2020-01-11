@@ -35,6 +35,8 @@ public class Book {
         this.quantity = quantity;
     }
 
+    public Book(){};
+
     public int getId() {
         return id;
     }

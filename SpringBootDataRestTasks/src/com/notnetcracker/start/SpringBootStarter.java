@@ -7,11 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.notnetcracker")
-@EntityScan("com.notnetcracker.entity")
+@EntityScan("com.notnetcracker")
+@EnableJpaRepositories("com.notnetcracker")
 public class SpringBootStarter {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootStarter.class,args);
+        SpringApplication.run(SpringBootStarter.class, args);
     }
 
 }

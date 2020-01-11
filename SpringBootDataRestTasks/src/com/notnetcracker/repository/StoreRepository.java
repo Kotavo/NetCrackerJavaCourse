@@ -11,7 +11,7 @@ public interface StoreRepository extends JpaRepository<Store, Integer> {
     @Query(value = "SELECT * FROM  store", nativeQuery = true)
     List<Store> getAll();
 
-    @Query(value = "SELECT * FROM store WHERE store.store_name = :store_name", nativeQuery = true)
+    @Query(value = "SELECT * FROM store WHERE store.store_name = :name", nativeQuery = true)
     List<Store> retrieveByName(@Param("name") String name);
 
 }

@@ -1,8 +1,8 @@
 package com.notnetcracker.api.controllers;
 
 
-import com.notnetcracker.entity.Book;
-import com.notnetcracker.service.BookService;
+import com.notnetcracker.entity.Buyer;
+import com.notnetcracker.service.BuyerService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,84 +17,77 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/book")
-public class BookController {
+@RequestMapping("/buyer")
+public class BuyerController {
 
     @Autowired
-    private BookService bookService;
+    private BuyerService buyerService;
 
     @GetMapping("/find/name")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public List<Book> findByName(@RequestParam String name){
-        List<Book> books = bookService.findByName(name);
-        if(books.isEmpty()){
+    public List<Buyer> findByName(@RequestParam String name){
+        List<Buyer> buyers = buyerService.findByName(name);
+        if(buyers.isEmpty()){
             return null;
         }
-        return books;
+        return buyers;
 
     }
 
     @GetMapping("/find/all")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public List<Book> findAll(){
-        return bookService.findAll();
+    public List<Buyer> findAll(){
+        return buyerService.findAll();
     }
 
 
     @GetMapping("/find/id")
     @ResponseStatus(code = HttpStatus.FOUND)
-    public List<Book> findById(@RequestParam int id){
-        List<Book> books = bookService.findById(id);
-        if(books.isEmpty()){
+    public List<Buyer> findById(@RequestParam int id){
+        List<Buyer> buyers = buyerService.findById(id);
+        if(buyers.isEmpty()){
             return null;
         }
-        return books;
+        return buyers;
     }
 
     @DeleteMapping("/delete")
     @ResponseStatus(code = HttpStatus.OK)
     public void deleteById(@RequestParam int id){
-        bookService.deleteById(id);
+        buyerService.deleteById(id);
     }
 
 
-    @PatchMapping("/update/cost")
+    @PatchMapping("/update/discount")
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateCostById(@RequestParam int id, float cost){
-        bookService.updateCostById(id, cost);
+    public void updateCostById(@RequestParam int id, float discount){
+        buyerService.updateDiscountById(id, discount);
     }
 
     @PatchMapping("/update/name")
     @ResponseStatus(code = HttpStatus.OK)
     public void updateNameById(@RequestParam int id, String name){
-        bookService.updateNameById(id,name);
+        buyerService.updateNameById(id,name);
     }
 
-    @PatchMapping("/update/deport")
+    @PatchMapping("/update/district")
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateDeportById(@RequestParam int id, String deport){
-        bookService.updateDeportById(id, deport);
+    public void updateDeportById(@RequestParam int id, String district){
+        buyerService.updateDistrictById(id, district);
     }
 
-
-
-    @PatchMapping("/update/quantity")
-    @ResponseStatus(code = HttpStatus.OK)
-    public void updateQuantityById(@RequestParam int id, int quantity){
-        bookService.updateQuantity(id, quantity);
-    }
 
     @PutMapping("/update/all")
     @ResponseStatus(code = HttpStatus.OK)
-    public void updateAllById(@RequestParam int id, String name, float cost, String deport, int quantity){
-        bookService.updateAllById(id,name,cost,deport,quantity);
+    public void updateAllById(@RequestParam int id, String name, String district, float discount){
+        buyerService.updateAllById(id, name, district, discount);
     }
 
 
     @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void addBook(@RequestParam String name, float cost, String deport, int quantity){
-        bookService.addBook(name,cost,deport,quantity);
+    public void addBuyer(@RequestParam int id, String name, String district, float discount){
+        buyerService.addBuyer(name, district, discount);
     }
 
 }

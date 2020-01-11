@@ -12,16 +12,43 @@ public class BuyerService {
     @Autowired
     private BuyerRepository buyerRepository;
 
-    public List<Buyer> retrieveBynName(String name){
-        return buyerRepository.retrieveByName(name);
+    public List<Buyer> findAll(){
+        return   buyerRepository.findAll();
     }
+
+    public List<Buyer> findByName(String name){
+        return buyerRepository.findByName(name);
+    }
+
+    public List<Buyer> findById(int id){
+        return buyerRepository.findAllById(id);
+    }
+
+    public void updateNameById(int id, String name){
+        buyerRepository.updateNameById(id,name);
+    }
+
+    public void updateDiscountById(int id, float discount){
+        buyerRepository.updateDiscountById(id, discount);
+    }
+
+    public void updateDistrictById(int id, String district){
+        buyerRepository.updateDistrictById(id, district);
+    }
+
+    public void updateAllById(int id, String name, String district, float discount){
+        buyerRepository.updateAllById(id, name, district, discount);
+    }
+
+    public void addBuyer(String name, String district, float discount){
+        buyerRepository.addBuyer(name,district,discount);
+    }
+
 
     public void deleteById(int id){
         buyerRepository.deleteById(id);
     }
 
-    public List<Buyer> getAll(){
-      return   buyerRepository.findAll();
-    }
+
 
 }
