@@ -72,7 +72,7 @@ public class PersonService {
 
 
         public void writeInObjectFile(Person person) throws IOException{
-        File file = new File(System.getProperty("user.dir") + "/resources/userfiles/PersonOfList.json");
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources/userfiles/PersonOfList.json");
         BufferedWriter bfw = new BufferedWriter(new FileWriter(file, true));
         Map<String,Object> tempPerson = new HashMap<>();
             tempPerson.put("id", person.getId());
@@ -91,7 +91,7 @@ public class PersonService {
 
     public List<Person> readObjectFile(){
         List<Person> personList = new ArrayList<>();
-        File file = new File(System.getProperty("user.dir") + "/resources/userfiles/PersonOfList.json");
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources/userfiles/PersonOfList.json");
         ArrayList<JsonObject> json = new ArrayList<>();
         Gson gson = new Gson();
         JsonObject obj;
@@ -112,56 +112,4 @@ public class PersonService {
             return null;
         }
     }
-
-
-    public void writeInFile(Person person) throws IOException {
-        File file = new File(System.getProperty("user.dir") + "/resources/userfiles/PersonOfList.txt");
-        BufferedWriter bfw = new BufferedWriter(new FileWriter(file, true));
-        bfw.append(person.toString());
-        bfw.append('\n');
-        bfw.close();
-
-    }
-
-    /*    public void writeInObjectFile(Person person) throws IOException{
-        File file = new File(System.getProperty("user.dir") + "/resources/userfiles/PersonOfList.json");
-
-        JSONObject object = new JSONObject();
-        object.put("id", person.getId());
-        object.put("firstName", person.getFirstName());
-        object.put("secondName", person.getSecondName());
-        object.put("salary", person.getSalary());
-        object.put("mail", person.getMail());
-        object.put("workPlace", person.getWorkPlace());
-
-        BufferedWriter bfw = new BufferedWriter(new FileWriter(file, true));
-        bfw.write(object.toJSONString());
-        bfw.flush();
-        bfw.close();
-
-    }*/
-
-/*
-            Reader reader = new BufferedReader(new FileReader(file));
-            JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
-            parser.get("id").getAsString();
-            parser.get("firstName").getAsString();
-            parser.get("secondName").getAsString();
-            parser.get("salary").getAsString();
-            parser.get("mail").getAsString();
-            parser.get("workPlace").getAsString();
-            Gson gson = new Gson();
-            personList.add(gson.fromJson(parser,Person.class));
-            return personList;
-
-
-                return new Person(
-                parser.get("id").getAsString(),
-                parser.get("firstName").getAsString(),
-                parser.get("secondName").getAsString(),
-                parser.get("salary").getAsString(),
-                parser.get("mail").getAsString(),
-                parser.get("workPlace").getAsString());
-*/
-
 }

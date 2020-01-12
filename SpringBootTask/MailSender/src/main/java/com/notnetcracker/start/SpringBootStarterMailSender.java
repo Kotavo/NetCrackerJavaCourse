@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = "com.notnetcracker")
-public class SpringBootStarter {
+public class SpringBootStarterMailSender {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootStarter.class,args);
+        SpringApplication.run(SpringBootStarterMailSender.class,args);
     }
 }
