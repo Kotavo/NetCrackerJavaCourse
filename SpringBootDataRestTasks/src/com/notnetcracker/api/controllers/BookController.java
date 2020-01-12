@@ -31,7 +31,6 @@ public class BookController {
             return null;
         }
         return books;
-
     }
 
     @GetMapping("/find/all")

@@ -16,7 +16,7 @@ public interface BuyerRepository extends JpaRepository<Buyer, Integer> {
 
     List<Buyer> findAllById(int id);
 
-    @Query(value = "SELECT * FROM  buyers WHERE buyers.buyer_name = :name", nativeQuery = true)
+    @Query(value = "SELECT * FROM  buyers WHERE buyer_name = :name", nativeQuery = true)
     List<Buyer> findByName(@Param("name") String name);
 
 
